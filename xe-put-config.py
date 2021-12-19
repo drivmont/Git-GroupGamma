@@ -12,13 +12,17 @@ requests.packages.urllib3.disable_warnings()
 #Pedimos la IP del router, con el cual previamente se tiene conectividad
 dirIP = input("Introduzca la direccion IP del router XE a trabajar: ")
 interfaz = input("Introduzca la Interfaz que se añadira: ")
+username = input("Introduzca el username privilegiado: ")
+password = input("Introduzca el password: ")
+
 
 #api_url = "https://10.10.0.254/restconf/data/ietf-interfaces:interfaces/interface=Loopback4"
 api_url = "https://"+dirIP+"/restconf/data/ietf-interfaces:interfaces/interface="+interfaz
 
 headers = {"Accept": "application/yang-data+json", "Content-type":"application/yang-data+json"}
 
-basicauth = ("admin", "cisco")
+#basicauth = ("admin", "cisco")
+basicauth = (username, password)
 #Se de cambiar la IP de la loopback4, pues estaria en la misma sub red 10.10.0.0/16
 #El router nos rebota
 #Por eso y por conveniencia cambiamos a otra sub red = 10.20.1.0/16, para mantener la idea de lo planteado
