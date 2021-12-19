@@ -44,7 +44,7 @@ else:
 
 #Ahora desde el codido Verificación la creación
 #Volvemos a ajustar la URL para consultar las interfaces
-api_url = "https://10.10.0.254/restconf/data/ietf-interfaces:interfaces"
+api_url = "https://"+dirIP+"/restconf/data/ietf-interfaces:interfaces"
 
 #Reusaremos la variable headers y basicauth 
 resp = requests.get(api_url, auth=basicauth, headers=headers, verify=False)
@@ -57,7 +57,7 @@ print(json.dumps(response_json, indent=4))
 
 #Ahora creemos la ruta estática
 
-api_url = "https://10.10.0.254/restconf/data/ietf-routing:routing/routing-instance=default/routing-protocols"
+api_url = "https://"+dirIP+"/restconf/data/ietf-routing:routing/routing-instance=default/routing-protocols"
 
 #Reusaremos la variable headers y basicauth 
 
